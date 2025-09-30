@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - Hospital System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="appointment.html">Appointments</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="signup-page">
+    <h2>Create New Account</h2>
+    <form action="signupthanks.html" method="get">
+      <label>First Name:</label>
+      <input type="text" name="firstname" required>
+
+      <label>Last Name:</label>
+      <input type="text" name="lastname" required>
+
+      <label>Email Address:</label>
+      <input type="email" name="email" required>
+
+      <label>Phone Number:</label>
+      <input type="tel" name="phone" required>
+
+      <label>Date of Birth:</label>
+      <input type="date" name="dob" required>
+
+      <label>Username:</label>
+      <input type="text" name="username" required>
+
+      <label>Password:</label>
+      <input type="password" name="password" required>
+
+      <label>Confirm Password:</label>
+      <input type="password" name="confirm_password" required>
+
+      <input type="checkbox" id="terms" name="terms" required>
+      <label for="terms">I agree to the Terms and Conditions</label>
+
+      <input type="submit" value="Create Account" class="btn-primary">
+      <input type="reset" value="Clear Form" class="btn-secondary">
+    </form> 
+  </div>
+</body>
+</html>

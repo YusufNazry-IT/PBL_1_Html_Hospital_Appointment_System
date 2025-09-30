@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointments - Hospital System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+        <!-- Navigation -->
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="appointment.html">Appointments</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    </nav>
+
+      <div class="page">
+        <h2>Book an Appointment</h2>
+
+        <!-- Appointment Form -->
+        <form id="AppForm">
+            <div>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" required>
+            </div>
+
+            <div>
+                <label for="mykad">MyKad Number:</label>
+                <input type="text" id="mykad" required>
+            </div>
+
+            <div>
+                <label for="doctor">Doctor (Availability):</label>
+                <select id="doctor" required>
+                    <option value="">Select Doctor</option>
+                    <option value="Dr. Phil Coulson">Dr. Phil Coulson - Cardiology (Mon & Wed)</option>
+                    <option value="Dr. Penny Small">Dr. Penny Small - Pediatrics (Mon-Fri)</option>
+                    <option value="Dr. Mel Skinner">Dr. Mel Skinner - Dermatology (Tue & Fri)</option>
+                    <option value="Dr. Brock Bones">Dr. Brock Bones - Orthopedics (Tue & Thu)</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <div>
+                <label for="session">Session Type:</label>
+                <select id="session" required>
+                    <option value="">Select Session</option>
+                    <option value="Morning">Morning Session (8:00 AM - 12:00 PM)</option>
+                    <option value="Afternoon">Afternoon Session (1:00 PM - 5:00 PM)</option>
+                    <option value="Evening">Evening Session (6:00 PM - 9:00 PM)</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="time">Time Slot:</label>
+                <select id="time" required>
+                    <option value="">Select Time Slot</option>
+                    <option>8:00 AM</option>
+                    <option>8:30 AM</option>
+                    <option>9:00 AM</option>
+                    <option>9:30 AM</option>
+                    <option>10:00 AM</option>
+                    <option>10:30 AM</option>
+                    <option>11:00 AM</option>
+                    <option>11:30 AM</option>
+                    <option>1:00 PM</option>
+                    <option>1:30 PM</option>
+                    <option>2:00 PM</option>
+                    <option>2:30 PM</option>
+                    <option>3:00 PM</option>
+                    <option>3:30 PM</option>
+                    <option>4:00 PM</option>
+                    <option>4:30 PM</option>
+                    <option>6:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>7:30 PM</option>
+                    <option>8:00 PM</option>
+                    <option>8:30 PM</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="reason">Symptoms and Patient records:</label>
+                <textarea id="reason" rows="8" required></textarea>
+            </div>
+
+            <div>
+                <input type="submit" value="Book Appointment" class="btn-primary">
+                    
+                </button>
+                <input type="reset" value="reset" class="btn-secondary">
+                    
+                </button>
+            </div>
+        </form>
+
+        <!-- Appointments Table -->
+        <h2>My Appointments</h2>
+        <div>
+            <table id="AppTable">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- New rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+ <script>
+        document.getElementById("AppForm").onsubmit = function(e) {
+            e.preventDefault();
+
+            // Get form values
+            var name = document.getElementById("name").value;
+            var doctor = document.getElementById("doctor").value;
+            var date = document.getElementById("date").value;
+            var session = document.getElementById("session").value;
+            var time = document.getElementById("time").value;
+
+            // Create a new table row
+            var table = document.getElementById("AppTable").getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+
+            // Add cells with form data
+            newRow.insertCell(0).innerText = name;
+            newRow.insertCell(1).innerText = doctor;
+            newRow.insertCell(2).innerText = date;
+            newRow.insertCell(3).innerText = time + ' (' + session + ')';
+            var actionsCell = newRow.insertCell(4);
+
+var deleteBtn = document.createElement("button");
+deleteBtn.innerText = "Delete";
+deleteBtn.className = "btn-delete"; // This applies the CSS styles
+deleteBtn.onclick = function() {
+    newRow.remove(); // Use newRow to refer to the correct row
+};
+
+// Append the button to the actions cell
+actionsCell.appendChild(deleteBtn);
+            // Reset the form
+            document.getElementById("AppForm").reset();
+        };
+    
+</script>
+</body>
+</html>
+        
